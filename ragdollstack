@@ -1,0 +1,104 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("BanditHub", "Serpent")
+local Main = Window:NewTab("Main")
+local MainSection = Main:NewSection("Main")
+local Player = Window:NewTab("Player")
+local PlayerSection = Player:NewSection("Player")
+local Teleport = Window:NewTab("Teleport")
+local TeleportSection = Teleport:NewSection("Teleport")
+local Credits = Window:NewTab("Credits") 
+local CreditsSection = Credits:NewSection("Credits")
+local NOC = game.Players.LocalPlayer.Name
+local humanoid = game.Players.LocalPlayer.Character.Humanoid
+
+MainSection:NewLabel("Game: Ragdoll Stack")
+
+MainSection:NewToggle("Auto-Farm", "Automatically farms wins", function(state)
+    if state then
+        while true do
+            wait(10)
+            local character = game.Players.LocalPlayer.Character.HumanoidRootPart
+            local location = CFrame.new(19.1915, 407.068, 472.275)
+            character.CFrame = location
+            game.StarterGui:SetCore("SendNotification", {
+                Title = "How to stop:";
+                Text = "Rejoin to stop auto-farming";
+                Duration = 5; 
+                })
+        end
+    else
+        
+    end
+end)
+
+TeleportSection:NewButton("Spawn", "Teleports to spawn", function()
+    local character = game.Players.LocalPlayer.Character.HumanoidRootPart
+    local location = CFrame.new(19.0227, 7.4608, 207.985)
+    character.CFrame = location
+end)
+
+TeleportSection:NewButton("5", "Teleports to 5 win spot", function()
+    local character = game.Players.LocalPlayer.Character.HumanoidRootPart
+    local location = CFrame.new(18.8956, 6.98929, -254.41)
+    character.CFrame = location
+end)
+
+TeleportSection:NewButton("32", "Teleports to 32 win spot", function()
+    local character = game.Players.LocalPlayer.Character.HumanoidRootPart
+    local location = CFrame.new(-268.494, 7.06904, 207.655)
+    character.CFrame = location
+end)
+
+TeleportSection:NewButton("Slope", "Teleports to the slope win spot", function()
+    local character = game.Players.LocalPlayer.Character.HumanoidRootPart
+    local location = CFrame.new(120.288, 7.06224, 278.078)
+    character.CFrame = location
+end)
+
+TeleportSection:NewButton("Wall", "Teleports to wall win spot", function()
+    local character = game.Players.LocalPlayer.Character.HumanoidRootPart
+    local location = CFrame.new(-81.9846, 7.0896, 278.172)
+    character.CFrame = location
+end)
+
+TeleportSection:NewButton("Pyramid Steps", "Teleports to the pyramid steps win spot", function()
+    local character = game.Players.LocalPlayer.Character.HumanoidRootPart
+    local location = CFrame.new(184.416, 207.061, 337.997)
+    character.CFrame = location
+end)
+
+TeleportSection:NewButton("Tower", "Teleports to tower win spot", function()
+    local character = game.Players.LocalPlayer.Character.HumanoidRootPart
+    local location = CFrame.new(-50.2356, 207.064, 337.845)
+    character.CFrame = location
+end)
+
+TeleportSection:NewButton("Abyss", "Teleports to abyss win spot", function()
+    local character = game.Players.LocalPlayer.Character.HumanoidRootPart
+    local location = CFrame.new(-95.069, 7.05756, 397.701)
+    character.CFrame = location
+end)
+
+TeleportSection:NewButton("Mountain", "Teleports to mountain win spot", function()
+    local character = game.Players.LocalPlayer.Character.HumanoidRootPart
+    local location = CFrame.new(190.031, 304.05, 397.886)
+    character.CFrame = location
+end)
+
+TeleportSection:NewButton("Ragdoll Stack", "Teleports to the ragdoll stack win spot", function()
+    local character = game.Players.LocalPlayer.Character.HumanoidRootPart
+    local location = CFrame.new(19.1915, 407.068, 472.275)
+    character.CFrame = location
+end)
+
+PlayerSection:NewSlider("Walkspeed", "Changes the players walkspeed", 500, 16, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+PlayerSection:NewButton("Rejoin", "Rejoin the server you are in",function()
+    local ts = game:GetService("TeleportService")
+    local p = game:GetService("Players").LocalPlayer
+    ts:Teleport(game.PlaceId, p)
+end)
+
+CreditsSection:NewLabel("Kavo UI Library by xHeptc")
