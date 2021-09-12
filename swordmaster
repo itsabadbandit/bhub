@@ -1,0 +1,45 @@
+
+    local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+    local Window = Library.CreateLib("BanditHub", "Serpent")
+    local Main = Window:NewTab("Main")
+    local MainSection = Main:NewSection("Main")
+    local Player = Window:NewTab("Player")
+    local PlayerSection = Player:NewSection("Player")
+    local Teleport = Window:NewTab("Teleport")
+    local TeleportSection = Teleport:NewSection("Teleport")
+    local Credits = Window:NewTab("Credits") 
+    local CreditsSection = Credits:NewSection("Credits")
+    local NOC = game.Players.LocalPlayer.Name
+
+    MainSection:NewLabel("Game: Sword Master Simulator")
+
+    MainSection:NewButton("Sell", "Sells your inventory", function()
+        local Sell = "Sell"
+        local Event = game:GetService("ReplicatedStorage").Remote.SellRemote
+        Event:FireServer(Sell)
+    end)
+
+    TeleportSection:NewButton("Buy", "Teleports you to the shop", function()
+        local character = game.Players.LocalPlayer.Character.HumanoidRootPart
+        local location = CFrame.new(-109,-2,60)
+        character.CFrame = location
+    end)
+
+    TeleportSection:NewButton("Sell", "Teleports you to sell area", function()
+        local character = game.Players.LocalPlayer.Character.HumanoidRootPart
+        local location = CFrame.new(-113,-2,-57)
+        character.CFrame = location
+    end)
+
+    TeleportSection:NewButton("Boss Shop", "Teleports you to the boss shop", function()
+        local character = game.Players.LocalPlayer.Character.HumanoidRootPart
+        local location = CFrame.new(-54,-2,-111)
+        character.CFrame = location
+    end)
+
+
+    PlayerSection:NewSlider("Walkspeed", "Changes the players walkspeed", 500, 16, function(s)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+    end)
+    
+    CreditsSection:NewLabel("Kavo UI Library by xHeptc")
