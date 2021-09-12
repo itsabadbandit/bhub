@@ -2,4 +2,6 @@ if game.PlaceId == 4806026225 then
   loadstring(game:HttpGet("https://raw.githubusercontent.com/itsabadbandit/bhub/main/defendersdepot"))()
 elseif game.PlaceId == 5447655350 then
   loadstring(game:HttpGet("https://raw.githubusercontent.com/itsabadbandit/bhub/main/swordmaster"))()
+elseif game.PlaceId == 7009987220 then
+  loadstring(game:HttpsGet("https://raw.githubusercontent.com/itsabadbandit/bhub/main/ragdollstack"))()
 end
