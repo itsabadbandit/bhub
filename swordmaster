@@ -1,0 +1,31 @@
+    local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+    local Window = Library.CreateLib("BanditHub", "Serpent")
+    local Main = Window:NewTab("Main")
+    local MainSection = Main:NewSection("Main")
+    local Credits = Window:NewTab("Credits") 
+
+    MainSection:NewButton("Bring Crates", "Brings every crate in the map to you", function()
+        local crate = game.Workspace:GetDescendants()
+        local character = game.Players.LocalPlayer.Character
+        for i, v in pairs(crate) do
+            if v.Name == ("Basic") then
+                v.CFrame = character.HumanoidRootPart.CFrame
+            end
+        end
+    end)
+
+    MainSection:NewButton("Count Crates", "Prints in console the amount of crates on the map", function()
+        local PartCount = 0
+    function GetPartCount(Obj)
+        for _,v in pairs(Obj:GetChildren()) do
+            if v.Name == ("Basic") then
+                PartCount = PartCount + 1
+            end
+            GetPartCount(v)
+        end
+    end
+    GetPartCount(game.Workspace)
+    print("Crates Detected: " .. PartCount)
+    end)
+    
+    Credits:NewLabel("Kavo UI Library by xHeptc")
