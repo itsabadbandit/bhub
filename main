@@ -1,0 +1,3 @@
+if game.PlaceId == 4806026225 then
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/itsabadbandit/bhub/main/defendersdepot"))()
+end
