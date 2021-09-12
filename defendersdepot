@@ -4,6 +4,8 @@
     local MainSection = Main:NewSection("Main")
     local Credits = Window:NewTab("Credits") 
 
+    MainSection:NewLabel("Game: Defender's Depot")
+
     MainSection:NewButton("Bring Crates", "Brings every crate in the map to you", function()
         local crate = game.Workspace:GetDescendants()
         local character = game.Players.LocalPlayer.Character
